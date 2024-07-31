@@ -3,13 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProductsModule } from './modules/products/products.module';
-// const uri = process.env.MONGODB_URI;
+import { ConfigModule } from '@nestjs/config';
+console.log('MONGODB_URI:', process.env.MONGODB_URI);
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://vmekriu:ObxqT5BB2et1YWlE@alstock.zosx5e0.mongodb.net/AlStock',
-    ),
+    ConfigModule.forRoot({
+      envFilePath: 'config.env',
+    }),
+    MongooseModule.forRoot(process.env.MONGODB_URI),
     ProductsModule,
   ],
   controllers: [AppController],
