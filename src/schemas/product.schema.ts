@@ -8,13 +8,16 @@ export class Product {
   @Prop({ required: true })
   name: string;
 
-  @Prop()
+  @Prop({ required: true })
+  type: string;
+
+  @Prop({ required: true })
   price: number;
 
-  @Prop()
+  @Prop({ required: true })
   priceMax: number;
 
-  @Prop()
+  @Prop({ required: true })
   priceMin: number;
 
   @Prop(

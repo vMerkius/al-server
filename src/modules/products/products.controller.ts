@@ -25,8 +25,6 @@ export class ProductsController {
     @Body() createProductDto: CreateProductDto,
     @UploadedFile() file: Express.Multer.File,
   ) {
-    console.log(file);
-    console.log(createProductDto);
     if (file) {
       createProductDto.photo = file.filename;
     }
