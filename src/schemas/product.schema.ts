@@ -18,13 +18,18 @@ export class Product {
   priceMin: number;
 
   @Prop(
-    raw({
-      date: { type: String },
-      saleCount: { type: Number },
-      revenue: { type: Number },
-    }),
+    raw([
+      {
+        date: { type: String },
+        saleCount: { type: Number },
+        revenue: { type: Number },
+      },
+    ]),
   )
-  dailyStat: Record<string, any>;
+  dailyStat: Record<string, any>[];
+
+  @Prop()
+  photo: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

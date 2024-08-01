@@ -14,9 +14,12 @@ export class CreateProductDto {
   readonly priceMin: number;
 
   @IsArray()
-  readonly dailyStat: {
+  dailyStat: {
     date: string;
     saleCount: number;
     revenue: number;
   }[];
+
+  @IsString()
+  photo: string;
 }
